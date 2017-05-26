@@ -1,10 +1,13 @@
 const _ = require('lodash');
+const path = require('path');
 
+const rootPath = path.join('../..');
 const development = require('./development.js');
 const production = require('./production.js');
 
 const defaults = {
   port: 3000,
+  staticPath: path.join(rootPath, 'dist'),
 };
 
 const configs = {
