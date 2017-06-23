@@ -7,6 +7,10 @@ const production = require('./production.js');
 
 const defaults = {
   port: 3000,
+  db: {
+    uri: 'mongodb://localhost/experiment',
+    options: {},
+  },
   staticPath: path.join(rootPath, 'dist'),
 };
 

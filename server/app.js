@@ -1,9 +1,12 @@
 const path = require('path');
 const express = require('express');
+const mongoose = require('./config/mongoose.js');
 
 global.rootRequire = (relativePath) => {
   return require(path.join(__dirname, relativePath));
 };
+
+mongoose();
 
 const routes = require('./routes.js');
 const config = require('./config/env');
