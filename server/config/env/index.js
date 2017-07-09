@@ -1,10 +1,10 @@
-const _ = require('lodash');
-const path = require('path');
+import _ from 'lodash';
+import path from 'path';
+
+import development from './development.js';
+import production from './production.js';
 
 const rootPath = path.join('../..');
-const development = require('./development.js');
-const production = require('./production.js');
-
 const defaults = {
   port: 3000,
   db: {
@@ -21,4 +21,6 @@ const configs = {
 };
 
 const nodeEnv = process.env.NODE_ENV || 'development';
-module.exports = _.merge(configs[nodeEnv], defaults);
+const config = _.merge(configs[nodeEnv], defaults);
+
+export default config;

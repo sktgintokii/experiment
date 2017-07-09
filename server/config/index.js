@@ -1,5 +1,5 @@
-const env = require('./env');
+import env from './env';
 
-module.exports = {
+export default {
   env,
 };

@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "start": "node server/app.js",
+    "start": "nodemon server/app.js --exec babel-node --presets es2017,react,env",
     "build": "webpack"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
@@ -14,7 +15,11 @@
     "morgan": "^1.8.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.1",
     "webpack": "^2.6.1"

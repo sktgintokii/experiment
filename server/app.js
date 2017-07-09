@@ -1,18 +1,13 @@
-const path = require('path');
-const express = require('express');
-const mongoose = require('./config/mongoose.js');
+import express from 'express';
 
-global.rootRequire = (relativePath) => {
-  return require(path.join(__dirname, relativePath));
-};
+import initMongoose from './config/mongoose.js';
+import initRoutes from './routes.js';
+import config from './config/env';
 
-mongoose();
-
-const routes = require('./routes.js');
-const config = require('./config/env');
 const app = express();
 
-routes(app);
+initMongoose();
+initRoutes(app);
 
 app.listen(config.port, () => {
   console.log('Server running on port %s', config.port);

@@ -1,19 +1,19 @@
-const express = require('express');
-const graphqlHTTP = require('express-graphql');
-const config = rootRequire('config/env');
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
 
-const rootValue = {hello: () => 'Hello world!'};
+import config from './config/env';
+import schema from '../schema';
 
-const graphql = require('graphql');
-const {GraphQLObjectType} = graphql;
-console.log(GraphQLObjectType);
+// import graphql from 'graphql';
+// import GraphQLObjectType from 'graphql/GraphQLObjectType';
 
-module.exports = (app) => {
-  // app.use('/graphql', graphqlHTTP({
-  //   schema: schema,
-  //   rootValue,
-  //   graphiql: true,
-  // }));
+const routes = (app) => {
+  app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    graphiql: true,
+  }));
 
   app.use('*', express.static(config.staticPath));
 };
+
+export default routes;

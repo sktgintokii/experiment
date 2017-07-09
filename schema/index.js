@@ -1,6 +1,6 @@
-const graphql = require('graphql');
-const GraphQLObjectType = graphql.GraphQLObjectType;
-const GraphQLSchema = graphql.GraphQLSchema;
+import {GraphQLObjectType, GraphQLSchema} from 'graphql';
+import UserQuery from '../models/User/UserQuery';
+import UserMutation from '../models/User/UserMutation';
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -8,8 +8,8 @@ const schema = new GraphQLSchema({
     fields: {
       users: UserQuery.users,
       user: UserQuery.user,
-      products: ProductQuery.products,
-      product: ProductQuery.product,
+      // products: ProductQuery.products,
+      // product: ProductQuery.product,
     },
   }),
   mutation: new GraphQLObjectType({
@@ -21,4 +21,4 @@ const schema = new GraphQLSchema({
   }),
 });
 
-module.exports = schema;
+export default schema;

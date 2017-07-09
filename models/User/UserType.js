@@ -1,4 +1,9 @@
-const {GraphQLObjectType, GraphQLID, GraphQLString} = require('graphql');
+import {
+  GraphQLObjectType,
+  GraphQLID,
+  GraphQLString,
+  GraphQLInt,
+} from 'graphql';
 
 const UserType = new GraphQLObjectType({
   name: 'User',
@@ -6,11 +11,17 @@ const UserType = new GraphQLObjectType({
   fields: {
     _id: {
       type: GraphQLID,
+      description: 'user id',
     },
     name: {
       type: GraphQLString,
+      description: 'user name',
+    },
+    age: {
+      type: GraphQLInt,
+      description: 'user age',
     },
   },
 });
 
-module.exports = UserType;
+export default UserType;
